@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Armada Desktop
+Comment=Niri Desktop for Armada
+Exec=/usr/libexec/armada/start-niri
+TryExec=/usr/bin/niri
+Type=Application

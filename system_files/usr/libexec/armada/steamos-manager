@@ -144,8 +144,8 @@ class ArmadaSteamOSManager:
         self.device_id = self.env.get("ARMADA_DEVICE_ID", "armada")
         self.device_name = self.env.get("ARMADA_DEVICE_NAME", "Armada")
         self.default_login_mode = self.env.get("ARMADA_STEAM_DEFAULT_LOGIN_MODE", "game")
-        self.default_desktop_session = self.env.get("ARMADA_STEAM_DESKTOP_SESSION", "armada-plasma.desktop")
-        self.valid_desktop_sessions = ("armada-plasma.desktop",)
+        self.default_desktop_session = self.env.get("ARMADA_STEAM_DESKTOP_SESSION", "armada-niri.desktop")
+        self.valid_desktop_sessions = ("armada-niri.desktop",)
         self.power = PowerClient()
         self.connection = None
 
