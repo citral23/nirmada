@@ -1,9 +1,10 @@
 #!/bin/bash
 set -euxo pipefail
 
-dnf5 -y install --nogpgcheck \
-    --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' \
-    terra-release
+curl -Lo /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+curl -Lo /etc/yum.repos.d/terra.repo https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
+curl -Lo /etc/yum.repos.d/brave-browser.repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+curl -Lo /etc/yum.repos.d/_copr\:copr.fedorainfracloud.org\:avengemedia\:danklinux.repo https://copr.fedorainfracloud.org/coprs/avengemedia/danklinux/repo/fedora-44/avengemedia-danklinux-fedora-44.repo
 
 dnf5 -y install --setopt=install_weak_deps=False \
     sddm \
@@ -51,8 +52,6 @@ dnf5 -y install --setopt=install_weak_deps=False \
     plymouth \
     plymouth-system-theme \
     plymouth-theme-spinner \
-    qt6-qttools \
-    qt6-qtvirtualkeyboard \
     zenity \
     seatd
 
@@ -74,36 +73,55 @@ dnf5 -y install --setopt=install_weak_deps=False \
     google-noto-color-emoji-fonts
 
 dnf5 -y install --setopt=install_weak_deps=False \
-    plasma-workspace \
-    plasma-desktop \
-    plasma-pa \
-    plasma-nm \
-    bluedevil \
-    maliit-keyboard \
-    libappindicator-gtk3 \
-    libdbusmenu-gtk3 \
-    kdialog \
-    kio-extras \
-    libsmbclient \
-    cifs-utils \
+    heroic-games-launcher \
+    brave-origin \
+    brightnessctl \
+    btop \
+    cargo \
+    cava \
+    chezmoi \
+    cliphist \
+    ddcutil \
+    dialog \
+    distrobox \
+    eog \
+    fastfetch \
+    fira-code-fonts \
+    freerdp \
+    git \
+    gnome-calculator \
+    gnome-clocks \
+    gparted \
+    ImageMagick \
+    iptables-legacy \
+    jetbrainsmono-nerd-fonts \
+    kitty \
+    mediawriter \
+    mpv \
+    nautilus \
+    nautilus-extensions \
+    papers-nautilus \
+    niri \
+    noctalia-shell \
+    papers \
+    python3-pip \
+    qt6ct \
+    screen \
+    tailscale \
+    telnet \
+    vim \
+    vulkan-tools \
     waydroid \
-    kscreen \
-    konsole \
-    dolphin \
-    ark \
-    gwenview \
-    kwrite
-
-dnf5 -y install --setopt=install_weak_deps=False \
-    heroic-games-launcher
+    wlsunset \
+    yazi \
+    zed
 
 dnf5 -y install --setopt=install_weak_deps=False \
     --repofrompath 'copr-ublue-os-packages,https://download.copr.fedorainfracloud.org/results/ublue-os/packages/fedora-$releasever-$basearch/' \
     --setopt=copr-ublue-os-packages.gpgcheck=0 \
     --setopt=copr-ublue-os-packages.repo_gpgcheck=0 \
     flatpak \
-    bazaar \
-    krunner-bazaar
+    bazaar
 
 mkdir -p /etc/flatpak/remotes.d
 curl --retry 3 -fsSL -o /etc/flatpak/remotes.d/flathub.flatpakrepo \
