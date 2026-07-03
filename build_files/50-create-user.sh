@@ -34,3 +34,5 @@ cat > /etc/sudoers.d/armada-user <<'EOF'
 %wheel ALL=(ALL) NOPASSWD: /usr/libexec/armada/armada-installer *
 EOF
 chmod 0440 /etc/sudoers.d/armada-user
+
+usermod --add-subuids 100000-165535 --add-subgids 100000-165535 armada
