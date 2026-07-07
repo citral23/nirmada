@@ -1,0 +1,41 @@
+window-rule {
+    match app-id=r#"brave$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+    match app-id="Bitwarden"
+    block-out-from "screen-capture"
+}
+
+window-rule {
+    draw-border-with-background false
+    default-column-width { proportion 0.5; }
+}
+
+window-rule {
+    match title="Authentication required"
+    match app-id="Calculator"
+    match app-id="mpv"
+    open-floating true
+}
+
+window-rule {
+    match app-id="drop.down"
+    draw-border-with-background false
+    open-floating true
+    default-floating-position x=0 y=10 relative-to="top"
+    default-window-height { proportion 0.2; }
+    default-column-width { proportion 0.5; }
+}
+
+
+window-rule {
+    match app-id="com.mastermindzh.tidal-hifi"
+    open-on-workspace "scratch"
+}
+
+workspace "ndrop"
+workspace "stuff"
+
+spawn-at-startup "niri" "msg" "action" "focus-workspace-down"

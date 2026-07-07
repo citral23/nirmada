@@ -1,0 +1,3 @@
+binds {
+    Mod+Shift+1 hotkey-overlay-title="Turn on/off DSI-1" {spawn-sh "niri msg outputs | grep -n2 DSI | grep -q Disabled && { echo off; niri msg output DSI-1 on; } || { echo on; niri msg output DSI-1 off; }";}
+}
